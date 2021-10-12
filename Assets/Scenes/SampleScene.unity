@@ -491,9 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1e3137a2a1def469afe93277aec952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCode: 
-  blank: {fileID: 0}
-  player: {fileID: 0}
+  deckCode: 90zo
+  blank: {fileID: 7602355759756521136, guid: ad47162597e9aa34fa4d28c08ce26c8c, type: 3}
+  player: {fileID: 1314167820}
 --- !u!1 &1111522226
 GameObject:
   m_ObjectHideFlags: 0

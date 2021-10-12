@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
         //(@TODO set area based on networked controller later)
         //hand = handObj.GetComponent<Hand>();
 
-        deck.deckCode = deckCode;
-     
+       
         isClient = true;
     }
 

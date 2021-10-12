@@ -11,7 +11,11 @@ public class Deck : MonoBehaviour
     public string deckCode;
     public Card blank;
     public Player player;
-    
+
+    void Start()
+    {
+        initiate(deckCode, player);
+    }
     public void drawCard()
     {
         if (cardIds.Count > 0)
@@ -35,24 +39,26 @@ public class Deck : MonoBehaviour
         int cardNo = 0;
         int run;
         int numCards;
-        
+        Debug.Log(dCode);
         foreach(var c in dCode)
         {
-            run = 0;
+            num = 0;
             num = (int) c;
             num = num - 48;
-
-            while (run <= 31)
+            run = 0;
+            while (run <= 6)
             {
                 numCards = num & 0b_11;
-                for (int i = numCards; i > 0; i++)
+                for (int i = numCards; i > 0; i--)
                 {
-                    cardIds.Append(cardNo);
+                    cardIds.Add(cardNo);
                 }
-
+                
                 run++;
                 cardNo++;
-                num = num << 2;
+                num = num >> 2;
+                
+                
             }
         }
     }
