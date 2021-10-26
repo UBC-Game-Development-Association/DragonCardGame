@@ -28,7 +28,7 @@ public class DeckView : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             currentPanel = Instantiate(panelPrefab, this.transform);
-            currentPanel.transform.position = new Vector3()
+            currentPanel.transform.position = new Vector3();
         }
     }
     
