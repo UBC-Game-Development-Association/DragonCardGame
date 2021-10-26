@@ -6,4 +6,11 @@
         deck,
         board
     }
+
+    public enum cardType
+    {
+        unit,
+        process,
+        conservation,
+    }
 }
