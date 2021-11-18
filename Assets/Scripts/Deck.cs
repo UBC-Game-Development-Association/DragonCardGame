@@ -20,8 +20,10 @@ public class Deck : MonoBehaviour
     {
         if (cardIds.Count > 0)
         {
-            Card drawn = Instantiate(blank, this.transform);
+            Card drawn = Instantiate(blank);
+            drawn.transform.position = this.transform.position + new Vector3(0.5f, 0.5f, 0f);
             drawn.initiate(cardIds[0], player);
+            Debug.Log(cardIds[0]);
             cardIds.RemoveAt(0);
         }
     }
