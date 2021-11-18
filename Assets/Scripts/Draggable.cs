@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DefaultNamespace;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler{
    
 	public Transform parentToReturnTo = null; 
 	
-	public enum Type {Units, Process, Conservation, AnthropogenicEvents} ;
-	public Type typeOfCard = Card.Units; 
+	//public enum Type {Units, Process, Conservation, AnthropogenicEvents} ;
+	public cardType  thisType = cardType.unit; 
    
    
 	public void OnBeginDrag(PointerEventData eventData){
