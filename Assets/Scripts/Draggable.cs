@@ -9,7 +9,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform parentToReturnTo = null; 
 	
 	//public enum Type {Units, Process, Conservation, AnthropogenicEvents} ;
-	public cardType  thisType = cardType.unit; 
+	public cardType thisType = cardType.unit; 
    
    
 	public void OnBeginDrag(PointerEventData eventData){
