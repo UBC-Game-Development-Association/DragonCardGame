@@ -3107,3 +3107,11 @@ Received Import Request.
 Start importing Assets/Scripts/DropZone.cs using Guid(8fc2a73c54fe77643bd812b812465b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c7b930b6ec3bd8d59d66305e537530a') in 0.004343 seconds 
   Import took 0.012604 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 2274.884595 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.003956 seconds 
+  Import took 0.012993 seconds .
+
