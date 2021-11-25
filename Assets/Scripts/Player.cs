@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public string deckCode;
     public Deck deck;
     public Hand hand = new Hand();
-
+    public int score = 0;
     public bool isClient;
     // Start is called before the first frame update
     void Start()
