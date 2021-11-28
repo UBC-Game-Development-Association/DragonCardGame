@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Effect : MonoBehaviour
 {
+    public int id;
+
+    public GameObject gameController;
+    
     /*
-     *  Get GameContorller
+     *  Startup with an ID
+     *  Get GameController
+     *  wait to be executed
      *
-     *
-     * 
+     * (also to do, effect is made when card played)
      */
     
     // Start is called before the first frame update

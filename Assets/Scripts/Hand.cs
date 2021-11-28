@@ -7,7 +7,7 @@ using DefaultNamespace;
 public class Hand
 {
     private List<Card> cards = new List<Card>();
-    private float width = 10f;
+    //private float width = 10f;
     public Player owner;
     public Vector3 rotation;
     public Vector3 area;
