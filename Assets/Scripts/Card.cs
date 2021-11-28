@@ -11,7 +11,7 @@ public class Card : MonoBehaviour
 {
     private Vector3 newPos;
     private Vector3 mousePos;
-    
+    public Material[] materials;
     private Camera cam;
     public Hand hand;
     public Player player;
@@ -24,6 +24,7 @@ public class Card : MonoBehaviour
     {
         cam = Camera.main;
         setPlayer(player);
+
     }
 
     // Update is called once per frame
@@ -36,6 +37,9 @@ public class Card : MonoBehaviour
     {
         id = cardId;
         player = newPl;
+        GameObject cardMesh = transform.Find("Card").gameObject;
+        Renderer rend = cardMesh.GetComponent<Renderer>();
+        rend.material = materials[1];
     }
     public void setPlayer(Player newPl)
     {
