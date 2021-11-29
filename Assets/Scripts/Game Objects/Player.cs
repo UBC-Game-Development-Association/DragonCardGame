@@ -40,18 +40,25 @@ public class Player : MonoBehaviour
          * The below code controls the 'focus' feature where rightclicking on a card makes it bigger
          * 
          */
-        if (Input.GetMouseButton(1))
+
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
-            if (hit.collider.CompareTag("Card"))
+            if (focused)
+            {
+                focused.loseFocus();
+                focused = null;
+            }
+            else if (hit.collider.CompareTag("Card"))
             { 
                 Card hitCard = hit.collider.gameObject.GetComponent<Card>();
-                if (focused && hitCard != focused)
+             /*   if (focused && hitCard != focused)
                 {
                     focused.loseFocus();
                 }
+               */ 
                 focused = hitCard;
                 focused.gainFocus();
             }
