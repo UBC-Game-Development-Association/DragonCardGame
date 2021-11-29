@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DefaultNamespace;
 using UnityEditor;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
@@ -12,16 +13,20 @@ public class Card : MonoBehaviour
     private Vector3 newPos;
     private Vector3 mousePos;
     public Material[] materials;
+    public Material[] numbers;
     private Camera cam;
     public Hand hand;
     public Player player;
     public Zone zone;
-
+    public Vector3 originalPos;
     public int id;
+
+    private bool focused;
     
     // Start is called before the first frame update
     void Start()
     {
+        focused = false;
         cam = Camera.main;
         setPlayer(player);
 
@@ -39,7 +44,10 @@ public class Card : MonoBehaviour
         player = newPl;
         GameObject cardMesh = transform.Find("Card").gameObject;
         Renderer rend = cardMesh.GetComponent<Renderer>();
-        rend.material = materials[1];
+        if (id < 3)
+        {
+            rend.material = materials[id];
+        }
     }
     public void setPlayer(Player newPl)
     {
@@ -54,33 +62,56 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if (player.isClient)
+        if (player.isClient && !focused)
        {
             newPos = Input.mousePosition;
             newPos = cam.ScreenToWorldPoint(new Vector3(newPos.x, newPos.y));
 
-            transform.position = new Vector3(newPos.x, newPos.y, -0.34f);
-        }
+            transform.position = new Vector3(newPos.x, newPos.y, -0.34f); 
+       }
         
     }
     private void OnMouseOver () 
     {
-
     }
+
     private void OnMouseUp()
     {
-        Zone newZone = BoardRules.getZone(transform.position);
-        if (newZone != zone)
+        if (!focused)
         {
-            zone = newZone;
-            if (zone == Zone.hand)
+
+
+            Zone newZone = BoardRules.getZone(transform.position);
+            if (newZone != zone)
             {
-                hand.addCard(this);
+                zone = newZone;
+                if (zone == Zone.hand)
+                {
+                    hand.addCard(this);
+                }
             }
+
+            hand.setCardPos();
         }
-        
-        hand.setCardPos();
-        
+    }
+
+    public void gainFocus()
+    {
+        if (focused == false)
+        {
+            originalPos = transform.position;
+            focused = true;
+        }
+
+        transform.position = new Vector3(0.3f, 0.24f, -0.61f);
+        transform.localScale = new Vector3(2f, 2f, 2f);
+    }
+
+    public void loseFocus()
+    {
+        transform.position = originalPos;
+        transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        focused = false;
     }
 
 }

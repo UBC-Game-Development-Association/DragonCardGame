@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4026044899661727075}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,8 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 076d5a1512b5f1842919c44975983d1c, type: 2}
   - {fileID: 2100000, guid: c4ba0081d776fb246b7baf075b595f7d, type: 2}
+  - {fileID: 2100000, guid: 95a922bf6352d914aaa9cf14bfb38c6b, type: 2}
+  numbers: []
   player: {fileID: 0}
   zone: 0
   id: 0
