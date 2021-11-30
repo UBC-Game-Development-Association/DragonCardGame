@@ -1,0 +1,30 @@
+How the deckcode works:
+
+The code is broken down into asci integers, then those integers are turned into binary. 
+
+We start at number 48 and end at 111, giving us 6 binary digits to work with (though there would be more available, this is all we got for now).
+
+Take, for example, the deck code 90no
+
+We can get all of the cards digit by digit:
+Starting with 9, we turn it into the ascii 57. Because we start at 48, we can subtract 48 to give us 9.
+
+9, into binary is 001001 (note, we turn it into 6 binary digits, two zeros in front)
+
+This binary code can be broken up into pairs of two: 00-10-01
+Each pair represents a card. The least significant pair of the code, is card ID 1. The second least significant is card id 2.
+
+(this means it kind of flips)
+Therefore: 9 = 00-10-01 = 0-2-1 = 1 of Card1, 2 of Card2, 0 of Card3
+
+We apply the same rules going forward. So next with 0:
+0 = 00-00-00 = 0-0-0 = 0 Card4, 0 Card5, 0 Card6.
+
+Moving on to the next digit, n:
+n = 110 in ascii
+We subtract 48, so 
+n = 62
+
+62 = 111110 = 11-11-01 = 1 of Card7, 3 of Card8, 2 of Card9 
+
+It will later be modified to not waste so many bits.
