@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
     {
         focused = false;
         cam = Camera.main;
-        setPlayer(player);
+        //setPlayer(player);
 
     }
 
@@ -41,7 +41,11 @@ public class Card : MonoBehaviour
     public void initiate(int cardId, Player newPl)
     {
         id = cardId;
-        player = newPl;
+        setPlayer(newPl);
+        if (player.playerID == 2)
+        {
+            flipCard();
+        }
         GameObject cardMesh = transform.Find("Card").gameObject;
         Renderer rend = cardMesh.GetComponent<Renderer>();
         if (id < 3)
@@ -56,6 +60,11 @@ public class Card : MonoBehaviour
         hand.addCard(this);
     }
 
+    public void flipCard()
+    {
+        Debug.Log("TRYING TO FLIP");
+        transform.Rotate(0, 0, 180);
+    }
     private void OnMouseDown()
     {
         

@@ -37,7 +37,7 @@ public class Hand
     public void addCard(Card newCard)
     {
         cards.Add(newCard);
-        newCard.transform.Rotate(rotation);
+        //newCard.transform.Rotate(rotation);
     }
 
     

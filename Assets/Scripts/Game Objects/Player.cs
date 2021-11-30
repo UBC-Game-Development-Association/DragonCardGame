@@ -13,15 +13,23 @@ public class Player : MonoBehaviour
     public Hand hand = new Hand();
     public int score = 0;
     public bool isClient;
-
+    public int playerID;
     public Card focused;
     
     // Start is called before the first frame update
     void Start()
     {
         hand.owner = this;
-        hand.area = new Vector3(0, -3.53f, -0.34f);
-        hand.rotation = new Vector3(0,0,0);
+        if (playerID == 1)
+        {
+            hand.area = new Vector3(0, -3.53f, -0.34f);
+            hand.rotation = new Vector3(90, 180, 0);
+        }
+        else if (playerID == 2)
+        {
+            hand.area = new Vector3(0, 3.85f, -0.34f);
+            hand.rotation = new Vector3(90, 180, 180);
+        }
         //(@TODO set area based on networked controller later)
         //hand = handObj.GetComponent<Hand>();
 
@@ -36,9 +44,12 @@ public class Player : MonoBehaviour
         {
             deck.drawCard();
         }
+        
+
+        
         /*
          * The below code controls the 'focus' feature where rightclicking on a card makes it bigger
-         * 
+         * It should be moved to a game controller later, it only applies to one player.
          */
 
         if (Input.GetMouseButtonDown(1))

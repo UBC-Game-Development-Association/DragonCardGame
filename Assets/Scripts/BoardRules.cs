@@ -7,7 +7,7 @@ public static class BoardRules
     public static Zone getZone(Vector3 position)
     { 
         Zone zone;
-        if (position.y > -1.6)
+        if (position.y > -1.6 && position.y < 1.6)
         { 
             zone = Zone.board;
         }
