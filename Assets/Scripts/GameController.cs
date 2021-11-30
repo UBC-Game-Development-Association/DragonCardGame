@@ -20,6 +20,24 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+    * Temporary card-flipping code, should be removed.
+    * 
+    */
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(ray, out hit);
+
+            if (hit.collider.CompareTag("Card"))
+            {
+                Card hitCard = hit.collider.gameObject.GetComponent<Card>();
+               
+                hitCard.flipCard();
+                
+            }
+        }
     }
 }

@@ -42,7 +42,6 @@ public class Deck : MonoBehaviour
         int numCards;
         foreach(var c in dCode)
         {
-            num = 0;
             num = (int) c;
             num = num - 48;
             run = 0;
