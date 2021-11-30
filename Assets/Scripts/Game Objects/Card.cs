@@ -62,7 +62,6 @@ public class Card : MonoBehaviour
 
     public void flipCard()
     {
-        Debug.Log("TRYING TO FLIP");
         transform.Rotate(0, 0, 180);
     }
     private void OnMouseDown()
