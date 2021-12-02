@@ -10,7 +10,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public DeckView deck;
 
 	//public enum cardType {Unit, Process, Conservation, AnthropogenicEvents} ;
-	//public cardStats stats;
+	public CardStats stats;
 	
    
    

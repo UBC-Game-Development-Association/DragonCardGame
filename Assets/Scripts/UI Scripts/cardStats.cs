@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using DefaultNamespace;
 
-public class cardStats : MonoBehaviour
+public class CardStats : MonoBehaviour
 {
 
-    public cardType  type = cardType.unit;
+    public cardType type = cardType.unit;
     //public cardID ID = cardID.number;
     public int score;
     public int size;
     public int sensitivity;
     public int habitatType;
-    public int level;
+    //public int level;
 
 
 
@@ -20,12 +20,12 @@ public class cardStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
