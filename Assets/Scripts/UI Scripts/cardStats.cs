@@ -6,8 +6,8 @@ using DefaultNamespace;
 public class CardStats : MonoBehaviour
 {
 
-    public cardType type = cardType.unit;
-    //public cardID ID = cardID.number;
+    public cardType type;
+    public int cardID;
     public int score;
     public int size;
     public int sensitivity;
