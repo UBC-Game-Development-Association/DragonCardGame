@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class DropZone : MonoBehaviour, IDropHandler , IPointerEnterHandler, IPointerExitHandler {
 
 
-//	public Draggable.thisType cardType = Draggable.cardType.unit;
+//	public Draggable.cardType thisType = cardType.Units;
 
 	public void OnPointerEnter(PointerEventData eventData) {
 		//Debug.Log("OnPointerEnter");
@@ -26,10 +26,10 @@ public class DropZone : MonoBehaviour, IDropHandler , IPointerEnterHandler, IPoi
 		
 		Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
 		if(d!= null) {
-//			if(cardType == d.cardTypeard || cardTypeard == Draggable.cardTypeype.unit){
+//			if(thisType == d.thisType ){
 				
 				
-//				d.parentToReturnTo = this.transform;
+				d.parentToReturnTo = this.transform;
 			//}
 		}
 		

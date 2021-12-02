@@ -6,19 +6,25 @@ using DefaultNamespace;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler{
    
-	public Transform parentToReturnTo = null; 
+	public Transform parentToReturnTo = null;
+	public DeckView deck;
+
+	//public enum cardType {Unit, Process, Conservation, AnthropogenicEvents} ;
+	//public cardStats stats;
 	
-	//public enum Type {Units, Process, Conservation, AnthropogenicEvents} ;
-	public cardType  thisType = cardType.unit; 
    
    
 	public void OnBeginDrag(PointerEventData eventData){
 		Debug.Log("OnBeginDrag");
-		
+
+		//thisType = cardType.pointerEnter;
 		
 		parentToReturnTo = this.transform.parent;
 		this.transform.SetParent(this.transform.parent.parent);
-		
+
+		//Get ID of card (Type, IDNumber)
+		//PointerEventData.pointerEnter.cardType = currentType
+
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 		
 	}
@@ -27,12 +33,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		Debug.Log("OnDrag");
 		
 		this.transform.position = eventData.position;
+
+
+		//If dropped on correct x position, call AddCard to add element
+
 	}
 	
 	
 	public void OnEndDrag(PointerEventData eventData){
 		Debug.Log("OnEndDrag");
+		
 		this.transform.SetParent(parentToReturnTo);
+
+		if (eventData.position.x < 152)
+        {
+			//deck.AddCard(stats);
+        }
+
+		
+
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
 	}
 
