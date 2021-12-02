@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using DefaultNamespace;
 
-public class CardStats : MonoBehaviour
+public class CardStats
 {
 
     public cardType type;
     public int cardID;
+    public string cardName;
     public int score;
     public int size;
     public int sensitivity;
