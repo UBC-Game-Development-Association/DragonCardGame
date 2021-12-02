@@ -10,6 +10,7 @@ using UnityEngine.U2D.IK;
 
 public class Card : MonoBehaviour
 {
+    
     private Vector3 newPos;
     private Vector3 mousePos;
     public Material[] materials;
@@ -22,6 +23,9 @@ public class Card : MonoBehaviour
     public int id;
 
     private bool focused;
+
+    public GameObject effectPrefab;
+    public GameController gameController;
     
     // Start is called before the first frame update
     void Start()
@@ -58,6 +62,13 @@ public class Card : MonoBehaviour
         player = newPl;
         hand = player.hand;
         hand.addCard(this);
+    }
+
+    public void play()
+    {
+        GameObject effectObject = Instantiate(effectPrefab);
+        Effect cardEffect = effectObject.GetComponent<Effect>();
+        cardEffect.initialize(id, gameController);
     }
 
     public void flipCard()
