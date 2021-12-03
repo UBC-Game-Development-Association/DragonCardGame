@@ -28,3 +28,7 @@ n = 62
 62 = 111110 = 11-11-01 = 1 of Card7, 3 of Card8, 2 of Card9 
 
 It will later be modified to not waste so many bits.
+
+010101 011001
+
+IE00

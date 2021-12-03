@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
             Card drawn = Instantiate(blank);
             drawn.transform.position = this.transform.position + new Vector3(0.5f, 0.5f, 0f);
             drawn.initiate(cardIds[0], player);
+            Debug.Log(cardIds[0]);
             cardIds.RemoveAt(0);
         }
     }
@@ -42,11 +43,10 @@ public class Deck : MonoBehaviour
         int numCards;
         foreach(var c in dCode)
         {
-            num = 0;
             num = (int) c;
             num = num - 48;
             run = 0;
-            while (run <= 6)
+            while (run <= 2)
             {
                 numCards = num & 0b_11;
                 for (int i = numCards; i > 0; i--)
