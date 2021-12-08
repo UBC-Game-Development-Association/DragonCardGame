@@ -51,7 +51,7 @@ public class Card : MonoBehaviour
         }
         GameObject cardMesh = transform.Find("Card").gameObject;
         Renderer rend = cardMesh.GetComponent<Renderer>();
-        if (id < 3)
+        if (id < 7)
         {
             rend.material = materials[id];
         }
