@@ -21,7 +21,7 @@ public class Card : MonoBehaviour
     public Zone zone;
     public Vector3 originalPos;
     public int id;
-
+    public Board board;
     private bool focused;
 
     public GameObject effectPrefab;
@@ -33,7 +33,7 @@ public class Card : MonoBehaviour
         focused = false;
         cam = Camera.main;
         //setPlayer(player);
-
+        board = gameController.board;
     }
 
     // Update is called once per frame
@@ -107,10 +107,19 @@ public class Card : MonoBehaviour
                 if (zone == Zone.hand)
                 {
                     hand.addCard(this);
+                    hand.setCardPos();
+                } else if (zone == Zone.ZoneA || zone == Zone.ZoneB)
+                {
+                    
+                    board.cardDropped(this, zone);
+                    board.setCardPositions();
                 }
+                
             }
-
-            hand.setCardPos();
+            
+            
+            
+            
         }
     }
 
