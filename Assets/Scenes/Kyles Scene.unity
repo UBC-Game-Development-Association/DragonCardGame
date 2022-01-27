@@ -366,8 +366,9 @@ GameObject:
   - component: {fileID: 1111522229}
   - component: {fileID: 1111522228}
   - component: {fileID: 1111522227}
+  - component: {fileID: 1111522231}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,6 +452,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111522231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111522226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c849fae93d2cd9f44a4e00fb2318c255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216639543
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedff442a3f8a214590a52b8a8939617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 1111522231}
   players: []
   effects: []
 --- !u!4 &1964818923
@@ -736,6 +750,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1777034243}
+    - target: {fileID: 2823601910835594998, guid: 750d38bd42cba7642bfbda166e40dcae, type: 3}
+      propertyPath: gamecontr
+      value: 
+      objectReference: {fileID: 1964818922}
     - target: {fileID: 2823601910835594999, guid: 750d38bd42cba7642bfbda166e40dcae, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -801,6 +819,10 @@ PrefabInstance:
       propertyPath: deckCode
       value: IZ00
       objectReference: {fileID: 0}
+    - target: {fileID: 2823601910835594998, guid: 750d38bd42cba7642bfbda166e40dcae, type: 3}
+      propertyPath: gamecontr
+      value: 
+      objectReference: {fileID: 1964818922}
     - target: {fileID: 2823601910835594999, guid: 750d38bd42cba7642bfbda166e40dcae, type: 3}
       propertyPath: m_RootOrder
       value: 4
