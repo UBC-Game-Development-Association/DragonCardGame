@@ -10,6 +10,7 @@ public class Hand
     public Player owner;
     public Vector3 rotation;
     public Vector3 area;
+    public Zone selfZone;
     public void setCardPos()
     {
         Card targCard;
@@ -17,7 +18,7 @@ public class Hand
         {
             targCard = cards[i];
             Zone zone = targCard.zone;
-            if (zone != Zone.hand)
+            if (zone != selfZone)
             {
                 cards.Remove(targCard);
             }

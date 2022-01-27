@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         hand.owner = this;
+        hand.selfZone = Zone.hand;
         if (playerID == 1)
         {
             hand.area = new Vector3(0, -3.53f, -0.34f);

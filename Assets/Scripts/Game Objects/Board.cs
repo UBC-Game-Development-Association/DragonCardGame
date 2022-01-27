@@ -13,7 +13,9 @@ public class Board : MonoBehaviour
     {
         //ZoneAH.area = Boardrules.zonahArea
         ZoneAH.area = new Vector3(-3f,-1f, -0.34f);
+        ZoneAH.selfZone = Zone.ZoneA;
         ZoneBH.area = new Vector3(3f,-1f, -0.34f);
+        ZoneBH.selfZone = Zone.ZoneB;
     }
 
     public void cardDropped(Card newCard, Zone newzone)

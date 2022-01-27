@@ -107,19 +107,19 @@ public class Card : MonoBehaviour
                 if (zone == Zone.hand)
                 {
                     hand.addCard(this);
-                    hand.setCardPos();
+
                 } else if (zone == Zone.ZoneA || zone == Zone.ZoneB)
                 {
                     
                     board.cardDropped(this, zone);
-                    board.setCardPositions();
+                    
                 }
                 
             }
-            
-            
-            
-            
+            //Because we need to check if cards need to be removed, we have to call it for everyone here
+            hand.setCardPos();
+            board.setCardPositions();
+
         }
     }
 
