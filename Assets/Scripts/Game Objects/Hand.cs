@@ -11,6 +11,10 @@ public class Hand
     public Vector3 rotation;
     public Vector3 area;
     public Zone selfZone;
+    
+    public Hand()
+    {
+    }
     public void setCardPos()
     {
         Card targCard;
