@@ -10,7 +10,7 @@ public class Deck : MonoBehaviour
     public string deckCode;
     public Card blank;
     public Player player;
-
+    public GameController gamecontr;
     void Start()
     {
         initiate(deckCode, player);
@@ -24,6 +24,7 @@ public class Deck : MonoBehaviour
             drawn.initiate(cardIds[0], player);
             Debug.Log(cardIds[0]);
             cardIds.RemoveAt(0);
+            drawn.gameController = gamecontr;
         }
     }
 

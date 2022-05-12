@@ -1,15 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DefaultNamespace;
+using UnityEngine.Animations;
+
 public static class BoardRules
 { 
+    //public area zoneaharea = ...
     public static Zone getZone(Vector3 position)
     { 
-        Zone zone;
+        Zone zone = Zone.hand;
+        
         if (position.y > -1.6 && position.y < 1.6)
-        { 
-            zone = Zone.board;
+        {
+            if (position.x <= 0)
+            {
+                zone = Zone.ZoneA;
+            }
+            else {
+                zone = Zone.ZoneB;
+            }
         }
         else
         { 
@@ -17,5 +28,14 @@ public static class BoardRules
         }
 
         return zone;
-        }
     }
+
+    private static Boolean isInArea(Vector3 position1, Vector3 position2, float width, float height)
+    {
+
+        
+
+        return false;
+    }
+    
+}

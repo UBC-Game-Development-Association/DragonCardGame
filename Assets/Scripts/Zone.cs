@@ -4,7 +4,8 @@
     {
         hand,
         deck,
-        board
+        ZoneA,
+        ZoneB
     }
 
     public enum cardType
