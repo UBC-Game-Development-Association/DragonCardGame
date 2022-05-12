@@ -213,10 +213,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 076d5a1512b5f1842919c44975983d1c, type: 2}
   - {fileID: 2100000, guid: c4ba0081d776fb246b7baf075b595f7d, type: 2}
   - {fileID: 2100000, guid: 95a922bf6352d914aaa9cf14bfb38c6b, type: 2}
+  - {fileID: 2100000, guid: 04a52d7873797144fb00e0a333ccfb39, type: 2}
+  - {fileID: 2100000, guid: baf0d452c2773b24b8c0d3c54909992e, type: 2}
+  - {fileID: 2100000, guid: 18cb89bb471a17646a7753b10520f146, type: 2}
+  - {fileID: 2100000, guid: 95a922bf6352d914aaa9cf14bfb38c6b, type: 2}
   numbers: []
   player: {fileID: 0}
   zone: 0
+  originalPos: {x: 0, y: 0, z: 0}
   id: 0
+  effectPrefab: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!65 &4026044899661727075
 BoxCollider:
   m_ObjectHideFlags: 0

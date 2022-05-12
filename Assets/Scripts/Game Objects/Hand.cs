@@ -10,6 +10,11 @@ public class Hand
     public Player owner;
     public Vector3 rotation;
     public Vector3 area;
+    public Zone selfZone;
+    
+    public Hand()
+    {
+    }
     public void setCardPos()
     {
         Card targCard;
@@ -17,7 +22,7 @@ public class Hand
         {
             targCard = cards[i];
             Zone zone = targCard.zone;
-            if (zone != Zone.hand)
+            if (zone != selfZone)
             {
                 cards.Remove(targCard);
             }
@@ -26,10 +31,8 @@ public class Hand
         for(var i = 0; i < cards.Count; i++)
         {
             targCard = cards[i];
-            if (targCard.zone == Zone.hand)
-            { 
-                targCard.transform.position = new Vector3((i * 1.35f) + start + area.x, area.y, area.z);
-            }
+            targCard.transform.position = new Vector3((i * 1.35f) + start + area.x, area.y, area.z);
+            
 
         }
     }

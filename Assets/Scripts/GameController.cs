@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public Board board;
     public List<Player> players = new List<Player>();
 
     public List<Effect> effects = new List<Effect>();
