@@ -31,7 +31,7 @@ public class ContaminationEvent : MonoBehaviour
         level++;
         GameObject effectObj = Instantiate(effectPrefab);
         Effect thisEffect = effectObj.GetComponent<Effect>();
-        thisEffect.initialize(id + level, gameController);
+        //thisEffect.initialize(id + level, gameController);
     }
     
 
