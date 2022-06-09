@@ -8,6 +8,7 @@ using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
+
 public class Card : MonoBehaviour
 {
     
@@ -26,6 +27,8 @@ public class Card : MonoBehaviour
 
     public GameObject effectPrefab;
     public GameController gameController;
+    
+    public ICardEffect playEffect;
     
     // Start is called before the first frame update
     void Start()
@@ -50,12 +53,23 @@ public class Card : MonoBehaviour
         {
             flipCard();
         }
+
+        Target target = GetComponent<Target>();
         GameObject cardMesh = transform.Find("Card").gameObject;
         Renderer rend = cardMesh.GetComponent<Renderer>();
         if (id < 7)
         {
             rend.material = materials[id];
         }
+
+        List<String> types = new List<string>();
+        //Add types from database @TODO
+        types.Add("bug");
+        types.Add("flying");
+        target.type = types;
+
+        playEffect = new CERemove();
+
     }
     public void setPlayer(Player newPl)
     {
@@ -67,8 +81,13 @@ public class Card : MonoBehaviour
     public void play()
     {
         GameObject effectObject = Instantiate(effectPrefab);
+
         Effect cardEffect = effectObject.GetComponent<Effect>();
-        cardEffect.initialize(id, gameController);
+        
+        //@TODO create target selection
+        //cardEffect.initialize(id, gameController);
+
+        
     }
 
     public void flipCard()
@@ -93,7 +112,12 @@ public class Card : MonoBehaviour
     private void OnMouseOver () 
     {
     }
-
+    //@TODO add card graveyard
+    public void remove()
+    {
+        gameObject.SetActive(false);
+    }
+    
     private void OnMouseUp()
     {
         if (!focused)

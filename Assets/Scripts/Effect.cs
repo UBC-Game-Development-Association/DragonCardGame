@@ -7,7 +7,8 @@ public class Effect : MonoBehaviour
     public int id;
 
     public GameController gameController;
-    
+
+    public ICardEffect cardEffect;
     /*
      *  Startup with an ID
      *  Get GameController
@@ -15,27 +16,18 @@ public class Effect : MonoBehaviour
      *
      * (also to do, effect is made when card played)
      */
-
-    public void initialize(int eId, GameController controller)
+    public List<Target> targets;
+    public void initialize(List<Target> targetList, ICardEffect effect, GameController controller)
     {
-        id = eId;
+        targets = targetList;
+        cardEffect = effect;
         gameController = controller;
         controller.effectWaiting(this);
     }
 
     public void execute()
     {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        cardEffect.activeEffect(gameController, targets);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
