@@ -17,7 +17,7 @@ public class Board : MonoBehaviour
         //ZoneBH.area = new Vector3(3f,-1f, -0.34f);
         //ZoneBH.selfZone = Zone.ZoneB;
     }
-
+    
     public void cardDropped(Card newCard, Zone newzone)
     {
         if (newzone == Zone.ZoneA)

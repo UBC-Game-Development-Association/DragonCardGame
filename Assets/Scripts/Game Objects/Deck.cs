@@ -11,6 +11,8 @@ public class Deck : MonoBehaviour
     public Card blank;
     public Player player;
     public GameController gamecontr;
+    public Hand hand = new Hand();
+
     void Start()
     {
         initiate(deckCode, player);

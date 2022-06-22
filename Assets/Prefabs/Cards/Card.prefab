@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5328842130648389389}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -3.58, y: -0.23001482, z: -2.28971}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -229,6 +229,7 @@ MonoBehaviour:
   zone: 0
   originalPos: {x: 0, y: 0, z: 0}
   id: 0
+  board: {fileID: 0}
   effectPrefab: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!65 &4026044899661727075

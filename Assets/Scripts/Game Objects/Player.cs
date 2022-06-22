@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
+using Mirror;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     //public GameObject deckObj;
     //public GameObject handObj;
+    private List<Card> cards = new List<Card>();
 
     public string deckCode;
     public Deck deck;
@@ -16,10 +18,33 @@ public class Player : MonoBehaviour
     public bool isClient;
     public int playerID;
     public Card focused;
-    
+    public Player player;
+    public GameObject deckPrefab;
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+    }
+
+    [Server]
+    public override void OnStartServer()
+    {
+        cards.Add(focused);
+    }
+
+    [Command]
+    public void CmdDealCards()
+    {
+        deck.drawCard();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameObject = Instantiate(deckPrefab);
+        deck = gameObject.GetComponent<Deck>();
+        deck.player = this;
+
         hand.owner = this;
         hand.selfZone = Zone.hand;
         if (playerID == 1)
@@ -38,23 +63,23 @@ public class Player : MonoBehaviour
        
         isClient = true;
     }
+
+   
+
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Alpha9) && deck)
         {
-            deck.drawCard();
- 
-        }
-        
+            NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+            player = networkIdentity.GetComponent<Player>();
+            player.CmdDealCards();
 
-        
+        }
         /*
          * The below code controls the 'focus' feature where rightclicking on a card makes it bigger
          * It should be moved to a game controller later, it only applies to one player.
          */
-
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -91,8 +116,6 @@ public class Player : MonoBehaviour
                     focused.loseFocus();
                     focused = null;
                 }
-
-
             }
             else
             {
