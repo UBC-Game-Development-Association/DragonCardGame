@@ -4,36 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class Deck
 {
     private List<int> cardIds = new List<int>();
     public string deckCode;
     public Card blank;
-    public Player player;
     public GameController gamecontr;
     public Hand hand = new Hand();
 
-    void Start()
+    public Deck(string nDeckCode)
     {
-        initiate(deckCode, player);
+          initiate(nDeckCode);
     }
-    public void drawCard()
+
+    public int drawCard()
     {
         if (cardIds.Count > 0)
         {
-            Card drawn = Instantiate(blank);
-            drawn.transform.position = this.transform.position + new Vector3(0.5f, 0.5f, 0f);
-            drawn.initiate(cardIds[0], player);
+
             Debug.Log(cardIds[0]);
+            int selectCard = cardIds[0];
             cardIds.RemoveAt(0);
-            drawn.gameController = gamecontr;
+            return selectCard;
         }
+        //@TODO GAMEOVER! NO Cards left! or something like that
+        return 0;
     }
 
-    public void initiate(string dCode, Player newPl)
+    public void initiate(string dCode)
     {
         deckCode = dCode;
-        player = newPl;
         buildDeck(dCode);
     }
 

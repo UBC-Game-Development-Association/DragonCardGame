@@ -12,10 +12,10 @@ public class Player : NetworkBehaviour
     private List<Card> cards = new List<Card>();
 
     public string deckCode;
-    public Deck deck;
+   
     public Hand hand = new Hand();
     public int score = 0;
-    public bool isClient;
+    //public bool isClient;
     public int playerID;
     public Card focused;
     public Player player;
@@ -32,18 +32,11 @@ public class Player : NetworkBehaviour
         cards.Add(focused);
     }
 
-    [Command]
-    public void CmdDealCards()
-    {
-        deck.drawCard();
-    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject gameObject = Instantiate(deckPrefab);
-        deck = gameObject.GetComponent<Deck>();
-        deck.player = this;
 
         hand.owner = this;
         hand.selfZone = Zone.hand;
@@ -61,7 +54,7 @@ public class Player : NetworkBehaviour
         //hand = handObj.GetComponent<Hand>();
 
        
-        isClient = true;
+        //isClient = true;
     }
 
    
@@ -69,18 +62,25 @@ public class Player : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9) && deck)
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
+            //@TODO For testing card draw
+            GameObject.Find("GameController").GetComponent<GameController>().testCardDraw(0);
+            /* Not sure purpose of below code - K
             NetworkIdentity networkIdentity = NetworkClient.connection.identity;
             player = networkIdentity.GetComponent<Player>();
-            player.CmdDealCards();
-
+            */
         }
-        /*
-         * The below code controls the 'focus' feature where rightclicking on a card makes it bigger
-         * It should be moved to a game controller later, it only applies to one player.
-         */
-        if (Input.GetMouseButtonDown(1))
+
+        if (Input.GetKeyDown(KeyCode.Alpha8)){
+
+            GameObject.Find("GameController").GetComponent<GameController>().testCardDraw(1);
+        }
+    /*
+     * The below code controls the 'focus' feature where rightclicking on a card makes it bigger
+     * It should be moved to a game controller later, it only applies to one player.
+     */
+    if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

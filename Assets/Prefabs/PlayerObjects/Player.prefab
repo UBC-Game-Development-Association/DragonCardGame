@@ -48,9 +48,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   deckCode: AABCF
-  deck: {fileID: 6876901429800782101, guid: 9e2dc102eab4d1c4e8a8809beee42656, type: 3}
   score: 0
-  isClient: 1
   playerID: 0
   focused: {fileID: 7652938178665468113, guid: 55fe7f5dc3645ee47a0bcbdd155801d2, type: 3}
   player: {fileID: 0}

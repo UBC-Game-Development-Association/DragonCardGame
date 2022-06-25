@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Kyles Scene.unity
     guid: 151c78b0bd2f4df4b8d683076950d332
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/networking scene.unity
     guid: f1388f563869ccc43be9ae33d8f2561f
+  - enabled: 1
+    path: Assets/Scenes/NetworkedDeckScene.unity
+    guid: 4490ac233f5c7634aa49fe5bba947be6
   m_configObjects: {}

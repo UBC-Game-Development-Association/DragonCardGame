@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6876901429800782099}
   - component: {fileID: 6876901429800782098}
   - component: {fileID: 6876901429800782097}
-  - component: {fileID: 6876901429800782101}
   - component: {fileID: 7328596724382633226}
   - component: {fileID: 7835307198231709233}
   m_Layer: 0
@@ -100,22 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6876901429800782101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6876901429800782096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1e3137a2a1def469afe93277aec952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deckCode: IZ00
-  blank: {fileID: 7652938178665468113, guid: 55fe7f5dc3645ee47a0bcbdd155801d2, type: 3}
-  player: {fileID: 4704366339312401081, guid: 2f90ccc184911f941beab8bed6a997fe, type: 3}
-  gamecontr: {fileID: 3121753116476310662, guid: 560928b05880bba4c85a65c0b054a2f0, type: 3}
 --- !u!114 &7328596724382633226
 MonoBehaviour:
   m_ObjectHideFlags: 0

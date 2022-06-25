@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DefaultNamespace;
+using Mirror;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
-public class Card : MonoBehaviour
+public class Card : NetworkBehaviour
 {
     
     private Vector3 newPos;
@@ -32,7 +33,7 @@ public class Card : MonoBehaviour
         focused = false;
         cam = Camera.main;
         //setPlayer(player);
-        board = gameController.board;
+        board = GameObject.Find("Board").GetComponent<Board>();
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class Card : MonoBehaviour
 
     public void initiate(int cardId, Player newPl)
     {
+        
         id = cardId;
         setPlayer(newPl);
         if (player.playerID == 2)
