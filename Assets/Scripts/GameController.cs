@@ -22,10 +22,11 @@ public class GameController : NetworkBehaviour
     {
         
     }
-
+//This was removed: not supposed to send network connections.
+/*
     public void registerPlayer(NetworkConnectionToClient conn, GameObject player, string deckcode)
     {
-        Debug.Log(deckcode);
+        Debug.Log(conn);
         CmdRegisterPlayer(deckcode, player, conn);
     }
     
@@ -33,12 +34,22 @@ public class GameController : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdRegisterPlayer(string deckcode, GameObject player, NetworkConnectionToClient conn)
     {   
+        
         //@TODO figure out strange deckcode bug
         Debug.Log(deckcode);
         Deck pDeck = new Deck("IZ00");
         players.Add(new Tuple<NetworkConnectionToClient, GameObject, Deck>(conn, player, pDeck));
     }
-
+*/
+    [Server]
+    public void registerPlayer(NetworkConnectionToClient conn, GameObject player, string deckcode)
+    {   
+        
+        //@TODO Investigate deckcode bug
+        Debug.Log(deckcode);
+        Deck pDeck = new Deck("IZ00");
+        players.Add(new Tuple<NetworkConnectionToClient, GameObject, Deck>(conn, player, pDeck));
+    }
     public void testCardDraw(int num)
     {
         CmdGivePlayerCard(num);
@@ -66,8 +77,10 @@ public class GameController : NetworkBehaviour
         
         card.initiate(players[PlayerNum].Item3.drawCard(), players[PlayerNum].Item2.GetComponent<Player>());
         card.gameController = this;
+        Debug.Log(players[PlayerNum].Item1);
         NetworkServer.Spawn(drawn, players[PlayerNum].Item1);
-        
+        drawn.GetComponent<NetworkIdentity>().AssignClientAuthority(players[PlayerNum].Item1);
+
     }
     
     public void effectWaiting(Effect newEffect)

@@ -456,6 +456,7 @@ MonoBehaviour:
   - {fileID: 5328842130648389389, guid: 55fe7f5dc3645ee47a0bcbdd155801d2, type: 3}
   gameController: {fileID: 3121753115541985222}
   deckCode: IZ00
+  blank: {fileID: 5328842130648389389, guid: 55fe7f5dc3645ee47a0bcbdd155801d2, type: 3}
 --- !u!4 &1368115081
 Transform:
   m_ObjectHideFlags: 0

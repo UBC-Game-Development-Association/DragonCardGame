@@ -82,7 +82,7 @@ public class Card : NetworkBehaviour
     }
     private void OnMouseDrag()
     {
-        if (player.isClient && !focused)
+        if (hasAuthority && !focused)
        {
             newPos = Input.mousePosition;
             newPos = cam.ScreenToWorldPoint(new Vector3(newPos.x, newPos.y));
@@ -118,6 +118,7 @@ public class Card : NetworkBehaviour
                 
             }
             //Because we need to check if cards need to be removed, we have to call it for everyone here
+            //@TODO Fix positions networking
             hand.setCardPos();
             board.setCardPositions();
 
