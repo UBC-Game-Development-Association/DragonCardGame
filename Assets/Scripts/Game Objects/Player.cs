@@ -35,17 +35,18 @@ public class Player : NetworkBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void setID(int id)
     {
-
+        playerID = id;
+        //Currently only setup for two players, will need to be changed. 
         hand.owner = this;
         hand.selfZone = Zone.hand;
-        if (playerID == 1)
+        if (hasAuthority)
         {
             hand.area = new Vector3(0, -3.53f, -0.34f);
             hand.rotation = new Vector3(90, 180, 0);
         }
-        else if (playerID == 2)
+        else
         {
             hand.area = new Vector3(0, 3.85f, -0.34f);
             hand.rotation = new Vector3(90, 180, 180);

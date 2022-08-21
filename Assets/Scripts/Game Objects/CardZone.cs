@@ -27,9 +27,9 @@ public class CardZone : Hand
         
         public new void addCard(Card newCard)
         {
-                //@TODO card positioning networked
-                /*
-                if(newCard.player.playerID == 1)
+                //@TODO card positioning networked, may want to adjust for multiple players? Rotations?
+                
+                if(newCard.player.hasAuthority)
                 {
                         base.addCard(newCard);
                 }
@@ -37,7 +37,7 @@ public class CardZone : Hand
                 {
                         p2Hand.addCard(newCard);
                 }
-                  */      
+                
                 
                 //newCard.transform.Rotate(rotation);
         }

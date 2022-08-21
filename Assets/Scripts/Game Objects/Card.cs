@@ -23,7 +23,9 @@ public class Card : NetworkBehaviour
     public int id;
     public Board board;
     private bool focused;
-
+    
+    [SyncVar] public int gameId;
+    
     public GameObject effectPrefab;
     public GameController gameController;
     
@@ -34,6 +36,8 @@ public class Card : NetworkBehaviour
         cam = Camera.main;
         //setPlayer(player);
         board = GameObject.Find("Board").GetComponent<Board>();
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        gameController.cardIn(this.gameObject, gameId);
     }
 
     // Update is called once per frame
@@ -102,6 +106,7 @@ public class Card : NetworkBehaviour
 
 
             Zone newZone = BoardRules.getZone(transform.position);
+           
             if (newZone != zone)
             {
                 zone = newZone;
@@ -125,6 +130,29 @@ public class Card : NetworkBehaviour
         }
     }
 
+    public void changeCardPos(Vector3 pos)
+    {
+        if (hasAuthority)
+        {
+            CmdMoveCardTo(pos);
+        }
+    }
+    
+    //Maybe make private?
+    [Command]
+    public void CmdMoveCardTo(Vector3 pos)
+    {
+        //@TODO verify that it can move
+        RpcMoveCardTo(pos);
+    }
+    //Maybe make private?   
+    [ClientRpc]
+    public void RpcMoveCardTo(Vector3 pos)
+    {
+        //@TODO make the card glide, not teleport
+        transform.position = pos;
+    }
+    
     public void gainFocus()
     {
         if (focused == false)

@@ -11,6 +11,8 @@ public class GameController : NetworkBehaviour
     private List<Tuple<NetworkConnectionToClient,GameObject,Deck>> players = new List<Tuple<NetworkConnectionToClient,GameObject,Deck>>();
     public GameObject blankCard;
     public List<Effect> effects = new List<Effect>();
+
+    private List<GameObject> cardList = new List<GameObject>();
     // Game State: enum
     // Player1 Turn -> Player2 Turn -> repeat
     // Cards played this turn
@@ -46,9 +48,10 @@ public class GameController : NetworkBehaviour
     {   
         
         //@TODO Investigate deckcode bug
-        Debug.Log(deckcode);
         Deck pDeck = new Deck("IZ00");
         players.Add(new Tuple<NetworkConnectionToClient, GameObject, Deck>(conn, player, pDeck));
+
+        player.GetComponent<Player>().setID(players.Count);
     }
     public void testCardDraw(int num)
     {
@@ -72,15 +75,18 @@ public class GameController : NetworkBehaviour
 
         
         Card card = drawn.GetComponent<Card>();
-        Debug.Log(players);
 
-        
+
         card.initiate(players[PlayerNum].Item3.drawCard(), players[PlayerNum].Item2.GetComponent<Player>());
         card.gameController = this;
-        Debug.Log(players[PlayerNum].Item1);
         NetworkServer.Spawn(drawn, players[PlayerNum].Item1);
-        drawn.GetComponent<NetworkIdentity>().AssignClientAuthority(players[PlayerNum].Item1);
+        //drawn.GetComponent<NetworkIdentity>().AssignClientAuthority(players[PlayerNum].Item1);
 
+    }
+
+    public void cardIn(GameObject obj, int id)
+    {
+        cardList.Insert(id,obj);
     }
     
     public void effectWaiting(Effect newEffect)

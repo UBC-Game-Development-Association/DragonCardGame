@@ -31,6 +31,8 @@ public class Hand
         for(var i = 0; i < cards.Count; i++)
         {
             targCard = cards[i];
+ 
+            //targCard.GetComponent<Card>().changeCardPos(new Vector3((i * 1.35f) + start + area.x, area.y, area.z));
             targCard.transform.position = new Vector3((i * 1.35f) + start + area.x, area.y, area.z);
             
 
